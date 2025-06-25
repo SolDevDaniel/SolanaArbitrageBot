@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arbitrage Bot</title>
+    <!-- style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-Drf85sTN.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DinCkq_r.css">
+  </head>
+  <body>
+    <div id="app">
+      <header>Arbitrage Bot</header>
+
+      <div id="walletContainer">
+        <div id="networkIndicator">
+          <div class="network-dot"></div>
+          <span>Mainnet</span>
+        </div>
+        <button id="connectWalletBtn">Connect Wallet</button>
+        <div id="walletAddress"></div>
+      </div>
+
+      <div class="container">
+        <div class="card">
+          <h3>Program Information</h3>
+          <div class="input-group">
+            <label for="programId">Program ID</label>
+            <input
+              type="text"
+              id="programId"
+              placeholder="Enter your program ID"
+            />
+          </div>
+          <div class="info-text">
+            Enter the program ID of your deployed Solana contract
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Initialize Vault</h3>
+          <div class="input-group">
+            <label>Signer (Owner)</label>
+            <input type="text" id="signerInit" readonly />
+          </div>
+
+          <div class="input-group">
+            <label>Vault PDA</label>
+            <input type="text" id="vaultPdaInit" readonly />
+          </div>
+
+          <div class="balance-display">
+            <span>Vault Balance:</span>
+            <span id="vaultBalance" class="balance-value">-</span>
+          </div>
+
+          <button class="btn" id="initBtn">
+            <span id="initBtnText">Initialize Vault</span>
+          </button>
+
+          <div class="info-text">
+            Creates a new vault PDA owned by the program
+          </div>
+          <div id="initStatus" class="status"></div>
+        </div>
+
+        
+        <div class="card">
+          <h3>Start</h3>
+          <div class="input-group">
+            <label>Owner</label>
+            <input type="text" id="signerStartBOT" readonly />
+          </div>
+
+          <div class="input-group">
+            <label>Vault PDA</label>
+            <input
+              type="text"
+              id="vaultPdaStartBOT"
+              placeholder="Vault PDA"
+              readonly
+            />
+          </div>
+
+          <div class="balance-display">
+            <span>Vault balance:</span>
+            <span id="balanceforArbitrage" class="balance-value">-</span>
+          </div>
+
+          <button class="btn" id="StartArbitrageBotBtn">
+            <span id="StartArbitrageBotBtnText">Start BOT</span>
+          </button>
+
+          <div class="info-text">
+            Bot starts the arbitrage process
+          </div>
+          <div id="BotStartStatus" class="status"></div>
+        </div>
+
+        
+
+        <div class="card">
+          <h3>Withdraw Funds</h3>
+          <div class="input-group">
+            <label>Signer (Owner)</label>
+            <input type="text" id="signerWithdraw" readonly />
+          </div>
+
+          <div class="input-group">
+            <label>Vault PDA</label>
+            <input
+              type="text"
+              id="vaultPdaWithdraw"
+              placeholder="Vault PDA"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Receiver Address</label>
+            <input type="text" id="receiver" placeholder="Receiver Address" />
+          </div>
+
+          <div class="balance-display">
+            <span>Withdrawable Amount:</span>
+            <span id="withdrawableBalance" class="balance-value">-</span>
+          </div>
+
+          <button class="btn" id="withdrawBtn">
+            <span id="withdrawBtnText">Withdraw Funds</span>
+          </button>
+
+          <div class="info-text">
+            Withdraws entire vault balance (minus rent exemption)
+          </div>
+          <div id="withdrawStatus" class="status"></div>
+        </div>
+
+        <div id="status" class="status"></div>
+      </div>
+
+      <footer>Arbitrage Bot | Solana Mainnet</footer>
+    </div>
+  </body>
+</html>
